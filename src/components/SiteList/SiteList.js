@@ -5,7 +5,7 @@ import axios from 'axios';
 
 export default function SiteList() {
   const [listings, setListings] = useState([]);
-  const [results, setResults] = useState(15);
+  const [results, setResults] = useState(4);
 
   React.useEffect(()=> {
     axios.get("https://tracktik-challenge.staffr.com/sites")
@@ -20,14 +20,14 @@ export default function SiteList() {
   return (
     <div className="SiteList"> 
     <div className='buttonDiv'>
+      <button onClick={()=> setResults(6)}>6 Results</button>
+      <button onClick={()=> setResults(9)}>9 Results</button>
       <button onClick={()=> setResults(15)}>Max sites</button>
-      <button onClick={()=> setResults(10)}>10 Results</button>
-      <button onClick={()=> setResults(20)}>20 Results</button>
     </div>
       <b>Results: </b>{results}
       <ul className='SiteListings'>
         {
-        listings.map((Listing, index) => index < results && <div className='ListItem' key={Listing.id}>
+        listings.map((Listing, index) => index < results && <a href="https://google.com"><div className='ListItem' key={Listing.id}>
           <div className='imgHolder'>
           <img src="https://picsum.photos/200/300?random=1" alt="img"></img>
           </div>
@@ -38,9 +38,13 @@ export default function SiteList() {
           <p><b>Phone:</b> {Listing.contacts.main.phoneNumber}</p>
           <h5 className='email'><a href="mailto:someone@example.com">{Listing.contacts.main.email}</a></h5>
           </div>
-        </div>
+        </div></a>
         )}
       </ul>
+      <h5>Pages:</h5>
+      <div className='pagination'>
+          {listings.map((Listing, index) => <button>here</button>)}
+      </div>
     </div>
   )
 }
