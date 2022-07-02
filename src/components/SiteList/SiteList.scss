@@ -1,7 +1,111 @@
-.SiteList {
-  margin: 12px;
-  height: 600px;
-  border: black;
-  border-style: outset;
-  background-color: lightgrey;
+.buttonDiv {
+  display: flex;
+  justify-content: center;
+align-items: center;
+  button {
+    height: 50px;
+    width: 120px;
+    color: white;
+    margin: 10px;
+    text-align: center;
+    background-color: rgb(212, 0, 41);
+    border-radius: 5px;
+  }
+
+  button:hover {
+    transition: 0.5s;
+    transform: scale(1.08);
+    cursor: pointer;
+  }
 }
+
+.SiteList {
+  background-color: #3d2341;
+  padding: 10px;
+  color: white;
+}
+
+.SiteListings {
+  display: flex;
+  margin: 10px;
+  border: white;
+  border-style: inset;
+  background-image: url("../../../public/images/listBackground.jpeg");
+  background-size: contain;
+  border-radius: 15px;
+  contain: content;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+  p {
+    margin: 0;
+  }
+
+
+}
+
+
+.ListItem{
+  display: flex;
+  border-style: outset;
+  border-radius: 20px;
+  background-color: rgba(212, 0, 41, 0.7);
+  color: white;
+  align-content: center;
+  min-height: 252px;
+  width: 28rem;
+  margin: 10px;
+}
+
+.ListItem:hover {
+  transition: 0.5s;
+  transform: scale(1.05);
+  background-color: rgb(212, 0, 41);
+  cursor: pointer;
+}
+
+.textHolder{
+  max-width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  h3 {
+border-bottom: 1px solid white;
+  }
+  p {
+    text-align: left;
+    word-wrap: normal;
+    padding-top: 5px;
+  }
+
+  h5 {
+    border-bottom: 1px solid white;
+      }
+}
+
+
+  
+.email:hover {
+    transition: 0.5s;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.imgHolder {
+  display: flex;
+  align-items: flex-start;
+  height: 120px;
+  width: 120px;
+  padding: 5px;
+  img {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+  }
+
+}
+
+// #addressTag {
+//   padding: 2px;
+// }
