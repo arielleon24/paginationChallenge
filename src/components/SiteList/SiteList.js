@@ -1,33 +1,44 @@
 import React from 'react';
 import './SiteList.scss';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import Pagination from "../Pagination/Pagination";
+// import { useEffect, useState } from 'react';
+// import axios from 'axios';
 
-export default function SiteList() {
-  const [listings, setListings] = useState([]);
-  const [results, setResults] = useState(4);
+export default function SiteList({listings, loading, resultsPerPage, setResultsPerPage, total, setCurrentPage}) {  
+  // const [listings, setListings] = useState([]);
+  // const [loading, setLoading] = useState(false);
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const [resultsPerPage, setResultsPerPage] = useState(4);
 
-  React.useEffect(()=> {
-    axios.get("https://tracktik-challenge.staffr.com/sites")
-    .then(res => {
-      console.log(res)
-      setListings(res.data)
-    })
-    .catch(err => console.log(err))
-  }, [])
-  console.log(listings)
+  // React.useEffect(()=> {
+  //   setLoading(true)
+  //   axios.get("https://tracktik-challenge.staffr.com/sites")
+  //   .then(res => {
+  //     console.log(res)
+  //     setListings(res.data)
+  //     setLoading(false)
+  //   })
+  //   .catch(err => console.log(err))
+  // }, [])
+  // console.log(listings.length)
+
+  if(loading) {
+    return <h2>Loading...</h2>
+  }
+  
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <div className="SiteList"> 
-    <div className='buttonDiv'>
-      <button onClick={()=> setResults(6)}>6 Results</button>
-      <button onClick={()=> setResults(9)}>9 Results</button>
-      <button onClick={()=> setResults(15)}>Max sites</button>
+    <div className='dropDownDiv'>
+      <button onClick={()=> setResultsPerPage(6)}>6 Results</button>
+      <button onClick={()=> setResultsPerPage(9)}>9 Results</button>
+      <button onClick={()=> setResultsPerPage(15)}>Max sites</button>
     </div>
-      <b>Results: </b>{results}
+      <b>Results: </b>{resultsPerPage}
       <ul className='SiteListings'>
         {
-        listings.map((Listing, index) => index < results && <a href="https://google.com"><div className='ListItem' key={Listing.id}>
+        listings.map((Listing, index) => index < resultsPerPage && <a href="https://google.com"><div className='ListItem' key={Listing.id}>
           <div className='imgHolder'>
           <img src="https://picsum.photos/200/300?random=1" alt="img"></img>
           </div>
@@ -41,10 +52,11 @@ export default function SiteList() {
         </div></a>
         )}
       </ul>
-      <h5>Pages:</h5>
-      <div className='pagination'>
-          {listings.map((Listing, index) => <button>here</button>)}
-      </div>
+      <Pagination 
+      resultsPerPage={resultsPerPage} 
+      totalListings={total}
+      paginate={paginate}
+      />
     </div>
   )
 }
