@@ -27,6 +27,7 @@ export default function SiteList({listings, loading, resultsPerPage, setResultsP
   }
   
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const sendMail = (email) => `mailto:${email}`
 
   return (
     <div className="SiteList"> 
@@ -47,7 +48,7 @@ export default function SiteList({listings, loading, resultsPerPage, setResultsP
           <p id='addressTag'><b>Address:</b> {Listing.address.street},{Listing.address.city}, {Listing.address.country}</p>
           <p><b>Name:</b> {Listing.contacts.main.firstName} {Listing.contacts.main.lastName}, {Listing.contacts.main.jobTitle}</p>
           <p><b>Phone:</b> {Listing.contacts.main.phoneNumber}</p>
-          <h5 className='email'><a href="mailto:someone@example.com">{Listing.contacts.main.email}</a></h5>
+          <h5 className='email'><a href={sendMail(Listing.contacts.main.email)}>{Listing.contacts.main.email}</a></h5>
           </div>
         </div></a>
         )}
