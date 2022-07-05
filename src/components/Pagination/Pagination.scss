@@ -6,6 +6,9 @@
   height: 100px;
   width: 100%;
   button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 50px;
     width: 120px;
     font-size: large;

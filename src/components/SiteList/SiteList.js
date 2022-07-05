@@ -28,20 +28,25 @@ export default function SiteList({listings, loading, resultsPerPage, setResultsP
   
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
   const sendMail = (email) => `mailto:${email}`
+  const randomPicId = () => {
+    return `https://picsum.photos/id/${Math.floor(Math.random() * 250 + 1)}/200/300`
+  }
 
   return (
     <div className="SiteList"> 
     <div className='dropDownDiv'>
+      <select>  
       <button onClick={()=> setResultsPerPage(6)}>6 Results</button>
       <button onClick={()=> setResultsPerPage(9)}>9 Results</button>
       <button onClick={()=> setResultsPerPage(15)}>Max sites</button>
+      </select>
     </div>
       <b>Results: </b>{resultsPerPage}
       <ul className='SiteListings'>
         {
         listings.map((Listing, index) => index < resultsPerPage && <a href="https://google.com"><div className='ListItem' key={Listing.id}>
           <div className='imgHolder'>
-          <img src="https://picsum.photos/200/300?random=1" alt="img"></img>
+          <img src={randomPicId()} alt="img"></img>
           </div>
           <div className='textHolder'>
           <h3>{Listing.title}</h3>
