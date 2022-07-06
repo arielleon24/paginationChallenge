@@ -2,20 +2,14 @@
   display: flex;
   justify-content: center;
 align-items: center;
-  button {
+  select{
     height: 50px;
     width: 120px;
     color: white;
-    margin: 10px;
     text-align: center;
+    margin: 10px;
     background-color: rgb(219, 0, 41);
     border-radius: 5px;
-  }
-
-  button:hover {
-    transition: 0.5s;
-    transform: scale(1.08);
-    cursor: pointer;
   }
 }
 
@@ -53,7 +47,7 @@ align-items: center;
   color: white;
   align-content: center;
   min-height: 270px;
-  width: 28rem;
+  width: 26rem;
   margin: 10px;
 }
 
@@ -112,7 +106,7 @@ border-bottom: 1px solid white;
 
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1032px) {
   .ListItem {
     display:flex;
     flex-direction: column;

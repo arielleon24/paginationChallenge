@@ -9,7 +9,7 @@ function App() {
   const [listings, setListings] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [resultsPerPage, setResultsPerPage] = useState(6);
+  const [resultsPerPage, setResultsPerPage] = useState(9);
 
   useEffect(()=> {
     const getListings = async () => {
